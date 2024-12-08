@@ -1,0 +1,40 @@
+﻿@model Product
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" style="color:red;"></span>
+        </div>
+
+        <div>
+            <label asp-for="Price"></label>
+            <input asp-for="Price" />
+            <span asp-validation-for="Price" style="color:red;"></span>
+        </div>
+
+        <div>
+            <label asp-for="Category"></label>
+            <select asp-for="Category" asp-items="@(new SelectList(new[] { "Electronics", "Appliances", "Clothing" }))"></select>
+            <span asp-validation-for="Category" style="color:red;"></span>
+        </div>
+
+        <div>
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description"></textarea>
+        </div>
+
+        <button type="submit">Save</button>
+        <a asp-action="Index">Back to List</a>
+    </form>
+</body>
+</html>
